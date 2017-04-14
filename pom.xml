@@ -35,6 +35,19 @@
             <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
             <swagger.ui.version>3.0.5</swagger.ui.version>
         </properties>
+        
+        <dependencies>
+            <dependency>
+                    <groupId>com.googlecode.maven-download-plugin</groupId>
+                    <artifactId>download-maven-plugin</artifactId>
+                    <version>1.3.0</version>
+            </dependency>
+            <dependency>
+                    <groupId>com.day.jcr.vault</groupId>
+                    <artifactId>content-package-maven-plugin</artifactId>
+                    <version>0.0.24</version>
+            </dependency>
+        </dependencies>
 
         <name>Sling - Swagger UI Apps</name>
         <description>
@@ -98,7 +111,7 @@
                     </executions>
                 </plugin>
 
-                <!-- allow for window.location.hash to drive the swagger file to be selected -->
+                <!-- allow for window.location.hash to drive the swagger file to be selected 
                 <plugin>
                     <groupId>com.google.code.maven-replacer-plugin</groupId>
                     <artifactId>replacer</artifactId>
@@ -121,21 +134,8 @@
                         </replacements>
                     </configuration>
                 </plugin>
-
-                <!-- create a package file -->
-                <plugin>
-                    <groupId>com.day.jcr.vault</groupId>
-                    <artifactId>maven-vault-plugin</artifactId>
-                    <version>0.0.10</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>package</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
+                -->
+                
                 <!-- configuration for upload into the sling instance -->
                 <plugin>
                     <groupId>com.day.jcr.vault</groupId>
@@ -166,7 +166,6 @@
                         <plugin>
                             <groupId>com.day.jcr.vault</groupId>
                             <artifactId>content-package-maven-plugin</artifactId>
-                            <version>0.0.24</version>
                             <executions>
                                 <execution>
                                     <id>install-package</id>
@@ -179,10 +178,43 @@
                     </plugins>
                 </build>
             </profile>
+            
+            <profile>
+                <id>aem</id>
+                <properties>
+                    <sling.port>4502</sling.port>
+                </properties>
+                <build>
+                    <plugins>
+                        <plugin>
+                            <groupId>com.day.jcr.vault</groupId>
+                            <artifactId>content-package-maven-plugin</artifactId>
+                            <extensions>true</extensions>
+                            <configuration>
+                                <targetURL>http://${sling.host}:${sling.port}/crx/packmgr/service.jsp</targetURL>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </build>
+                
+            </profile>
 
         </profiles>
 
         <!-- adobe repositories for plugins -->
+        <repositories>
+            <repository>
+                <id>adobe-public-releases</id>
+                <name>Adobe Public Repository</name>
+                <url>https://repo.adobe.com/nexus/content/groups/public</url>
+                <releases>
+                    <updatePolicy>never</updatePolicy>
+                </releases>
+                <snapshots>
+                    <enabled>false</enabled>
+                </snapshots>
+            </repository>
+        </repositories>
         <pluginRepositories>
             <pluginRepository>
                 <id>adobe-public-releases</id>

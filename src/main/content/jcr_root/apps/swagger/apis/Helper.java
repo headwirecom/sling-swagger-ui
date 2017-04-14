@@ -14,6 +14,8 @@ public class Helper implements Use {
 
     private SlingHttpServletRequest request;
     
+    private String host;
+    
     public ArrayList<String> getOpenApiFiles() {
         ArrayList<String> files = new ArrayList<String>();
         
@@ -32,6 +34,7 @@ public class Helper implements Use {
     }
     
     public void init(Bindings bindings) {
-        request = (SlingHttpServletRequest) bindings.get("request");
+        request = (SlingHttpServletRequest) bindings.get("request");        
+        host = request.getHeader("host");
     }
 }

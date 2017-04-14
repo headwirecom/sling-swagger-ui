@@ -3,4 +3,5 @@
 <workspaceFilter version="1.0">
     <filter root="/apps/swagger"/>
     <filter root="/content/swagger"/>
+    <filter root="/oak:index/openapi"/>
 </workspaceFilter>
