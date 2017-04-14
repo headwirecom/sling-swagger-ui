@@ -1,0 +1,26 @@
+swagger: 2.0
+info:
+  title: example content request to aem/sling
+  description: this is an example swagger yaml file that can be used for testing purposes with the swagger ui. It will request /content.json and show the result
+  version: "1.0.0"
+host: localhost:8080
+schemes:
+  - http
+basePath: /
+produces:
+  - application/json
+paths:
+  /content.json:
+    get:
+      summary: request /content.json from the server
+      description: 
+      operationId: request
+      responses:
+        200:
+          description: Success
+          schema:
+            type: string
+        default:
+          description: Error
+          schema:
+            type: string

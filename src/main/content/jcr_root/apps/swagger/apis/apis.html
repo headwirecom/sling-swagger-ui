@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>${properties.jcr:title}</title>
+    <style>
+        body {
+            background-color: #fafafa;
+            /* light gray */
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            color: #1e1e1e;
+            /* dark gray */
+        }
+        
+        .container {
+            width: 100%;
+            max-width:800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <sly data-sly-use.helper="Helper"></sly>
+        <hr/>
+        <h3>${properties.jcr:title}</h3>
+        <hr/>
+        <ul data-sly-list="${helper.openApiFiles}">
+            <li><a href="/content/swagger/ui/index.html?url=http://localhost:8080${item}">${item}</a></li>
+        </ul>
+
+        <hr/>
+        
+        <p>
+            go to the <a href="/content/swagger/ui/index.html">swagger ui</a>
+        </p>
+
+        <hr/>
+
+        <p>
+            To list files in this console please add a property 'openapi={Boolean}true' to the folder containing your .yaml and .json files with the definitions.
+        </p>
+        <p>
+            more info about the sling swagger ui project at <a href="http://www.github.com/headwirecom/sling-swagger">github.com/headwirecom/sling-swagger</a>
+        </p>
+
+    </div>
+</body>
+
+</html>
