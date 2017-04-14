@@ -29,7 +29,7 @@
         <h3>${properties.jcr:title}</h3>
         <hr/>
         <ul data-sly-list="${helper.openApiFiles}">
-            <li><a href="/content/swagger/ui/index.html?url=${helper.host}${item}">${item}</a></li>
+            <li><a href="/content/swagger/ui/index.html" onclick="{ document.location = ('/content/swagger/ui/index.html?url=' + document.location.origin + this.innerHTML); return false; }">${item}</a></li>
         </ul>
 
         <hr/>

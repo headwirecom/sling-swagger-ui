@@ -16,6 +16,10 @@ public class Helper implements Use {
     
     private String host;
     
+    public String getHost() {
+        return host;
+    }
+    
     public ArrayList<String> getOpenApiFiles() {
         ArrayList<String> files = new ArrayList<String>();
         
