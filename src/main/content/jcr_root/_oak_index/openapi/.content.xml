@@ -5,5 +5,5 @@
         propertyNames="{Name}[openapi]"
         reindex="{Boolean}false"
         reindexCount="{Long}4"
-        type="property"/>
+        type="property">
 </jcr:root>
