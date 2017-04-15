@@ -94,7 +94,9 @@ children of `nt:file` will be listed in the `/content/swagger/apis.html` list.
 # notes
 
 Due to some odities in AEM and the use of the content tree we may move the swagger-ui
-into a different location and unif
+into a different location. At this time for the Swagger UI to be visible in AEM
+the request to `/content/swagger/ui/index.html` has to be whitelisted due to security
+restrictions. 
 
 This project is only supported on sling instances with composum installed as it
 uses regular content packages for its installation (starting with sling-9 composum
