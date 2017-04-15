@@ -2,6 +2,7 @@
 
 <workspaceFilter version="1.0">
     <filter root="/apps/swagger"/>
-    <filter root="/content/swagger"/>
+    <filter root="/etc/swagger"/>
+    <filter root="/etc/openapi"/>
     <filter root="/oak:index/openapi"/>
 </workspaceFilter>

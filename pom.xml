@@ -85,7 +85,17 @@
                 <!-- add the swagger ui dist folder to the project -->
                 <resource>
                     <directory>${project.build.directory}/swagger-ui/swagger-ui-${swagger.ui.version}/dist</directory>
-                    <targetPath>../vault-work/jcr_root/content/swagger/ui</targetPath>
+                    <targetPath>../vault-work/jcr_root/etc/swagger/ui</targetPath>
+                    <excludes>
+                        <exclude>**/index.html</exclude>
+                    </excludes>
+                </resource>
+                <resource>
+                    <directory>${project.build.directory}/swagger-ui/swagger-ui-${swagger.ui.version}/dist/</directory>
+                    <targetPath>../vault-work/jcr_root/apps/swagger/ui/</targetPath>
+                    <includes>
+                        <include>**/*.html</include>
+                    </includes>
                 </resource>
             </resources>
 

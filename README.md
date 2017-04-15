@@ -82,21 +82,16 @@ definitions:
 # to use
 
 A list of all open api files in an instrance can be found at
-`/content/swagger/apis.html`[sling](http://localhost:8080/content/swagger/apis.html)
-[AEM](http://localhost:4502/content/swagger/apis.html)
+`/content/swagger/apis.html`[sling](http://localhost:8080/etc/openapi.html)
+[AEM](http://localhost:4502/etc/openapi.html)
 
 # add your own openapi definition files
 
 To add your own OpenAPI definition files create a `sling:Folder` node in your
 repository and add a property `openapi={Boolean}true` to the node. All immediate
-children of `nt:file` will be listed in the `/content/swagger/apis.html` list. 
+children of `nt:file` will be listed in the `/etc/openapi.html` list. 
 
 # notes
-
-Due to some odities in AEM and the use of the content tree we may move the swagger-ui
-into a different location. At this time for the Swagger UI to be visible in AEM
-the request to `/content/swagger/ui/index.html` has to be whitelisted due to security
-restrictions. 
 
 This project is only supported on sling instances with composum installed as it
 uses regular content packages for its installation (starting with sling-9 composum
