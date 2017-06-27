@@ -74,10 +74,10 @@ definitions:
 # to install into a local instance
 
 ## for sling
-```maven clean install -PautoInstallPackage```
+```mvn clean install -PautoInstallPackage```
 
 ## for aem
-```maven clean install -PautoInstallPackage,aem```
+```mvn clean install -PautoInstallPackage,aem```
 
 # to use
 
